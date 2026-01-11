@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 152 65% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 100% 45%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 150 15% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 45 100% 45%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 15% 90%;
+    --input: 150 15% 90%;
+    --ring: 152 65% 33%;
+
+    --radius: 1.5625rem;
+
+    --gradient-gold: 45 100% 45%, 45 100% 55%;
+    --gradient-green: 152 65% 33%, 152 65% 43%;
+    --shadow-soft: 0 10px 40px -10px hsla(152, 65%, 33%, 0.1);
+    --shadow-glow: 0 0 40px hsla(45, 100%, 45%, 0.3);
+    --blur-bg: hsla(0, 0%, 100%, 0.7);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 152 65% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 152 65% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 152 65% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 152 65% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 100% 50%;
+    --secondary-foreground: 152 65% 10%;
+
+    --muted: 152 25% 20%;
+    --muted-foreground: 150 15% 70%;
+
+    --accent: 45 100% 50%;
+    --accent-foreground: 152 65% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 152 25% 20%;
+    --input: 152 25% 20%;
+    --ring: 152 65% 45%;
+    
+    --blur-bg: hsla(152, 65%, 8%, 0.7);
+  }
+}
+
+@layer utilities {
+  .blur-glass {
+    background: var(--blur-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gradient-gold)));
+  }
+  
+  .gradient-green {
+    background: linear-gradient(135deg, hsl(var(--gradient-green)));
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Skip to content link for accessibility */
+  .skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 100;
+  }
+  
+  .skip-to-content:focus {
+    top: 0;
+  }
+}
+
+/* Rich Text Editor Styles */
+.rich-text-editor .ql-container {
+  min-height: 300px;
+  font-size: 16px;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.rich-text-editor .ql-toolbar {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background: hsl(var(--muted));
+  border-color: hsl(var(--border));
+}
+
+.rich-text-editor .ql-container {
+  border-color: hsl(var(--border));
+}
+
+.rich-text-editor .ql-editor {
+  color: hsl(var(--foreground));
+}
+
+.rich-text-editor .ql-editor.ql-blank::before {
+  color: hsl(var(--muted-foreground));
+  font-style: normal;
+}
+
+.dark .rich-text-editor .ql-toolbar {
+  background: hsl(var(--muted));
+}
+
+.dark .rich-text-editor .ql-stroke {
+  stroke: hsl(var(--foreground));
+}
+
+.dark .rich-text-editor .ql-fill {
+  fill: hsl(var(--foreground));
+}
+
+.dark .rich-text-editor .ql-picker-label {
+  color: hsl(var(--foreground));
+}

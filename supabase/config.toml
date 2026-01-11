@@ -1,0 +1,19 @@
+project_id = "hlffhiutjqguedgnnblj"
+
+[functions.initialize-monnify-payment]
+verify_jwt = false
+
+[functions.send-newsletter-welcome]
+verify_jwt = false
+
+[functions.send-bulk-email]
+verify_jwt = false
+
+[functions.send-donation-confirmation]
+verify_jwt = false
+
+[functions.monnify-webhook]
+verify_jwt = false
+
+[functions.sitemap]
+verify_jwt = false
